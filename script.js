@@ -41,26 +41,7 @@ async function gerarPlano() {
     document.getElementById('loading').classList.add('active');
 
     try {
-        const prompt = `
-Você é um especialista em Creator Economy e vendas na YouShop.
-
-Perfil do creator:
-- Nicho: ${answers.step1}
-- Canal principal: ${answers.step2}
-- Maior obstáculo: ${answers.step3}
-
-Responda APENAS com um JSON válido no seguinte formato:
-
-{
-  "produto": "Nome completo do produto recomendado",
-  "comissao": "R$ XX,XX por venda",
-  "conversao": "X.X%",
-  "plano7dias": ["Dia 1: ação...", "Dia 2: ação...", "Dia 3: ação...", "Dia 4: ação...", "Dia 5: ação...", "Dia 6: ação...", "Dia 7: ação..."],
-  "copy": "Copy persuasiva completa pronta para usar",
-  "ia_ajuda": ["Ajuda 1", "Ajuda 2", "Ajuda 3"]
-}
-`; 
-
+      
         const response = await fetch("/api/gerarPlano", {
             method: "POST",
             headers: {
@@ -80,6 +61,9 @@ Responda APENAS com um JSON válido no seguinte formato:
         const data = await response.json();
         const texto = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
+        console.log("TEXTO RECEBIDO:");
+        console.log(texto);
+
         if (!texto) throw new Error("Resposta vazia");
 
         const jsonMatch = texto.match(/\{[\s\S]*\}/);
@@ -98,16 +82,21 @@ function mostrarResultadoIA(r) {
     document.getElementById('loading').classList.remove('active');
     document.getElementById('result').classList.add('active');
 
-    document.getElementById('metric-row').innerHTML = `
+   document.getElementById('metric-row').innerHTML = `
         <div class="metric">
             <div class="metric-val">${r.tempo_estimado}</div>
             <div class="metric-label">Estimativa da IA</div>
+        </div>
+
         <div class="metric">
-            <div class="metric-val">${r.comissao}</div> 
-            <div class="metric-label">Comissão</div></div>
+            <div class="metric-val">${r.comissao}</div>
+            <div class="metric-label">Comissão</div>
+        </div>
+
         <div class="metric">
-            <div class="metric-val">${r.conversao}</div> 
-            <div class="metric-label">Conversão média</div></div>
+            <div class="metric-val">${r.conversao}</div>
+            <div class="metric-label">Conversão média</div>
+        </div>
     `;
 
     document.getElementById('produto-block').innerHTML = `<div class="plan-item"><div class="plan-item-num">★</div><div><strong>${r.produto}</strong></div></div>`;
