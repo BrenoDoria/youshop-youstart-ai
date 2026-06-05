@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouStart AI — Assistente Generativo para Creators da YouShop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <!-- Logo -->
+        <div class="logo-bar">
+            <div class="logo-icon"></div>
+            <div class="logo-text">YOU<span>START</span> <span style="color:var(--gray);font-weight:400;font-size:.9rem">by BrenoDoria</span></div>
+        </div>
+
+        <!-- Hero -->
+        <div class="hero" id="hero">
+            <div class="hero-tag">IA Generativa · Protótipo</div>
+            <h1>YouStart <em>AI</em></h1>
+            <p>Seu assistente de IA generativa que cria planos personalizados, copies de venda e estratégias de conteúdo para você vender mais na YouShop.</p>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-bar-wrap" id="progress">
+            <div class="progress-steps">
+                <div class="progress-step" id="ps1"></div>
+                <div class="progress-step" id="ps2"></div>
+                <div class="progress-step" id="ps3"></div>
+            </div>
+            <div class="progress-label" id="progress-label"></div>
+        </div>
+
+        <!-- Steps -->
+        <div class="card" id="steps-card">
+            <!-- Step 1 -->
+            <div class="step active" id="step1">
+                <div class="step-num">Passo 1 de 3</div>
+                <h2>Qual é o seu nicho de interesse?</h2>
+                <p class="sub">A IA vai usar isso para sugerir os produtos mais alinhados à sua audiência.</p>
+                <div class="options" id="opts1">
+                    <button class="option" data-val="saude" onclick="selectOption(1,this)"><span class="option-icon">💪</span><div><div class="option-text">Saúde & Bem-estar</div><div class="option-sub">Suplementos, emagrecimento, fitness</div></div></button>
+                    <button class="option" data-val="financas" onclick="selectOption(1,this)"><span class="option-icon">💰</span><div><div class="option-text">Finanças Pessoais</div><div class="option-sub">Investimentos, renda extra</div></div></button>
+                    <button class="option" data-val="tecnologia" onclick="selectOption(1,this)"><span class="option-icon">💻</span><div><div class="option-text">Tecnologia & Programação</div><div class="option-sub">Cursos técnicos, automação, IA</div></div></button>
+                    <button class="option" data-val="moda" onclick="selectOption(1,this)"><span class="option-icon">👗</span><div><div class="option-text">Moda & Beleza</div><div class="option-sub">Cosméticos, vestuário, lifestyle</div></div></button>
+                    <button class="option" data-val="carreira" onclick="selectOption(1,this)"><span class="option-icon">🎯</span><div><div class="option-text">Carreira & Concursos</div><div class="option-sub">Preparatórios, desenvolvimento profissional</div></div></button>
+                </div>
+                <button class="btn" id="btn1" disabled onclick="goStep(2)">Continuar →</button>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step" id="step2">
+                <div class="step-num">Passo 2 de 3</div>
+                <h2>Onde você tem (ou quer ter) sua audiência?</h2>
+                <p class="sub">Isso define qual formato de conteúdo a IA vai sugerir pra você usar.</p>
+                <div class="options" id="opts2">
+                    <button class="option" data-val="instagram" onclick="selectOption(2,this)"><span class="option-icon">📸</span><div><div class="option-text">Instagram / TikTok</div><div class="option-sub">Reels, stories, posts curtos</div></div></button>
+                    <button class="option" data-val="youtube" onclick="selectOption(2,this)"><span class="option-icon">▶️</span><div><div class="option-text">YouTube</div><div class="option-sub">Vídeos longos, tutoriais</div></div></button>
+                    <button class="option" data-val="whatsapp" onclick="selectOption(2,this)"><span class="option-icon">💬</span><div><div class="option-text">WhatsApp / Telegram</div><div class="option-sub">Grupos, listas de transmissão</div></div></button>
+                    <button class="option" data-val="blog" onclick="selectOption(2,this)"><span class="option-icon">✍️</span><div><div class="option-text">Blog / LinkedIn</div><div class="option-sub">Artigos, posts profissionais</div></div></button>
+                    <button class="option" data-val="nenhum" onclick="selectOption(2,this)"><span class="option-icon">🌱</span><div><div class="option-text">Ainda não tenho audiência</div><div class="option-sub">Vou começar do zero</div></div></button>
+                </div>
+                <button class="btn" id="btn2" disabled onclick="goStep(3)">Continuar →</button>
+                <button class="btn" style="background:transparent; border:1px solid rgba(255,255,255,0.2); color:var(--gray);" onclick="goStep(1)">← Voltar</button>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step" id="step3">
+                <div class="step-num">Passo 3 de 3</div>
+                <h2>Qual é o seu maior medo ao começar?</h2>
+                <p class="sub">Seja honesto — a IA vai personalizar sua estratégia para superar exatamente esse obstáculo.</p>
+                <div class="options" id="opts3">
+                    <button class="option" data-val="nao_saber_criar" onclick="selectOption(3,this)"><span class="option-icon">✏️</span><div><div class="option-text">Não saber criar conteúdo</div></div></button>
+                    <button class="option" data-val="nao_vender" onclick="selectOption(3,this)"><span class="option-icon">😟</span><div><div class="option-text">Não conseguir vender</div></div></button>
+                    <button class="option" data-val="produto_errado" onclick="selectOption(3,this)"><span class="option-icon">🎲</span><div><div class="option-text">Escolher o produto errado</div></div></button>
+                    <button class="option" data-val="tempo" onclick="selectOption(3,this)"><span class="option-icon">⏱️</span><div><div class="option-text">Falta de tempo</div></div></button>
+                </div>
+                <button class="btn" id="btn3" disabled onclick="gerarPlano()">✨ Gerar meu plano com IA</button>
+                <button class="btn" style="background:transparent; border:1px solid rgba(255,255,255,0.2); color:var(--gray);" onclick="goStep(2)">← Voltar</button>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading">
+            <div class="spinner"></div>
+            <p class="typing-dots">A IA está montando seu plano personalizado...</p>
+        </div>
+
+        <!-- Result -->
+        <div id="result">
+            <div class="card">
+                <div class="result-header">
+                    <div class="avatar">🤖</div>
+                    <div>
+                        <h2 id="result-title">Seu Plano YouStart está pronto!</h2>
+                        <p id="result-sub">Personalizado com base nas suas respostas</p>
+                    </div>
+                </div>
+                <div class="metric-row" id="metric-row"></div>
+                <div class="plan-block">
+                    <div class="plan-block-title">Produto recomendado para você</div>
+                    <div class="plan-items" id="produto-block"></div>
+                </div>
+                <div class="plan-block">
+                    <div class="plan-block-title">Seu plano de ação — primeiros 7 dias</div>
+                    <div class="plan-items" id="plano-block"></div>
+                </div>
+                <div class="plan-block">
+                    <div class="plan-block-title">Copy pronta para usar agora</div>
+                    <div class="copy-block" id="copy-block">
+                        <button class="copy-btn" onclick="copiarTexto()">Copiar</button>
+                        <span id="copy-text"></span>
+                    </div>
+                </div>
+                <div class="plan-block">
+                    <div class="plan-block-title">
+                        Como a IA pode ajudar você
+                    </div>
+
+                    <div class="plan-items" id="ia-block"></div>
+                </div>
+                <button class="btn" onclick="reiniciar()" style="width:100%; margin-top:20px;">↺ Recomeçar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <footer style="text-align:center; margin:80px 0 30px; color:var(--gray); font-size:0.82rem; padding-top:20px; border-top:1px solid rgba(127,224,0,0.15);">
+    Protótipo desenvolvido por <strong>Breno Doria</strong> • Programa de Estágio YouShop 2026<br>
+    <a href="https://github.com/BrenoDoria/youshop-youstart-ai" style="color:var(--green)">Ver código completo no GitHub</a>
+  </footer>
+</div>
+</body>
+</html>
