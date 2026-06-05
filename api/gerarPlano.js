@@ -49,6 +49,7 @@ Responda APENAS com JSON válido.
     );
 
     const dados = await resposta.json();
+    console.log(JSON.stringify(dados, null, 2));
 
     console.log("Gemini respondeu:", JSON.stringify(dados));
 
