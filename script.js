@@ -2,17 +2,6 @@
 
 let answers = { step1: null, step2: null, step3: null };
 
-let loadingInterval;
-
-const mensagensLoading = [
-    "🔎 Analisando seu nicho...",
-    "🎯 Escolhendo o melhor produto...",
-    "📅 Criando seu plano de 7 dias...",
-    "✍️ Gerando copy persuasiva...",
-    "🤖 Aplicando estratégias com IA...",
-    "✅ Finalizando resultado..."
-];
-
 function selectOption(step, el) {
     const container = document.getElementById('opts' + step);
     container.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
@@ -41,32 +30,6 @@ function updateProgress(step) {
     }
 }
 
-function iniciarLoadingDinamico() {
-
-    let indice = 0;
-
-    const texto = document.getElementById("loading-text");
-
-    texto.textContent = mensagensLoading[0];
-
-    loadingInterval = setInterval(() => {
-
-        indice++;
-
-        if (indice >= mensagensLoading.length) {
-            indice = 0;
-        }
-
-        texto.textContent = mensagensLoading[indice];
-
-    }, 2000);
-}
-
-function pararLoadingDinamico() {
-
-    clearInterval(loadingInterval);
-}
-
 async function gerarPlano() {
     if (!answers.step1 || !answers.step2 || !answers.step3) {
         alert("Por favor, responda todas as 3 perguntas.");
@@ -76,8 +39,6 @@ async function gerarPlano() {
     document.getElementById('steps-card').style.display = 'none';
     document.getElementById('progress').style.display = 'none';
     document.getElementById('loading').classList.add('active');
-
-    iniciarLoadingDinamico();
 
     try {
         const prompt = `
@@ -134,7 +95,6 @@ Responda APENAS com um JSON válido no seguinte formato:
 }
 
 function mostrarResultadoIA(r) {
-    pararLoadingDinamico();
     document.getElementById('loading').classList.remove('active');
     document.getElementById('result').classList.add('active');
 
@@ -156,7 +116,6 @@ function mostrarResultadoIA(r) {
 }
 
 function mostrarResultadoFallback() {
-    pararLoadingDinamico();
     document.getElementById('loading').classList.remove('active');
     document.getElementById('result').classList.add('active');
 }
