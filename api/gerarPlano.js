@@ -25,7 +25,8 @@ REGRAS OBRIGATÓRIAS:
 
 1. O produto recomendado deve estar diretamente relacionado ao nicho informado.
 
-2. O plano de 7 dias deve ser diferente para cada canal:
+2. O plano de Mínimo: 0 dias
+Máximo: 30 dias deve ser diferente para cada canal:
 - Instagram = reels, stories, carrosséis
 - YouTube = vídeos, shorts e lives
 - WhatsApp = listas, grupos e mensagens
@@ -62,12 +63,13 @@ Exemplo:
 RESPONDA SOMENTE COM JSON VÁLIDO.
 
 {
-  "produto": "",
-  "comissao": "",
-  "conversao": "",
-  "plano7dias": [],
-  "copy": "",
-  "ia_ajuda": []
+  "produto":"...",
+  "comissao":"...",
+  "conversao":"...",
+  "tempo_estimado":"...",
+  "plano":["..."],
+  "copy":"...",
+  "ia_ajuda":["..."]
 }
 `;
 

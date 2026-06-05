@@ -99,14 +99,26 @@ function mostrarResultadoIA(r) {
     document.getElementById('result').classList.add('active');
 
     document.getElementById('metric-row').innerHTML = `
-        <div class="metric"><div class="metric-val">${r.plano7dias.length} dias</div><div class="metric-label">1ª venda possível</div></div>
-        <div class="metric"><div class="metric-val">${r.comissao}</div><div class="metric-label">Comissão</div></div>
-        <div class="metric"><div class="metric-val">${r.conversao}</div><div class="metric-label">Conversão média</div></div>
+        <div class="metric">
+            <div class="metric-val">${r.tempo_estimado}</div>
+            <div class="metric-label">Estimativa da IA</div>
+        <div class="metric">
+            <div class="metric-val">${r.comissao}</div> 
+            <div class="metric-label">Comissão</div></div>
+        <div class="metric">
+            <div class="metric-val">${r.conversao}</div> 
+            <div class="metric-label">Conversão média</div></div>
     `;
 
     document.getElementById('produto-block').innerHTML = `<div class="plan-item"><div class="plan-item-num">★</div><div><strong>${r.produto}</strong></div></div>`;
 
-    const planoHTML = r.plano7dias.map((item, i) => `<div class="plan-item"><div class="plan-item-num">${i+1}</div><div>${item}</div></div>`).join('');
+    const planoHTML = r.plano
+        .map((item, i) =>
+            `<div class="plan-item">
+            <div class="plan-item-num">${i+1}</div>
+            <div>${item}</div>
+            </div>`
+        ).join('');
     document.getElementById('plano-block').innerHTML = planoHTML;
 
     document.getElementById('copy-text').textContent = r.copy;
