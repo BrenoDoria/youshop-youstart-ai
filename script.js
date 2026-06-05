@@ -99,7 +99,7 @@ function mostrarResultadoIA(r) {
     document.getElementById('result').classList.add('active');
 
     document.getElementById('metric-row').innerHTML = `
-        <div class="metric"><div class="metric-val">7 dias</div><div class="metric-label">1ª venda possível</div></div>
+        <div class="metric"><div class="metric-val">${r.plano7dias.length} dias</div><div class="metric-label">1ª venda possível</div></div>
         <div class="metric"><div class="metric-val">${r.comissao}</div><div class="metric-label">Comissão</div></div>
         <div class="metric"><div class="metric-val">${r.conversao}</div><div class="metric-label">Conversão média</div></div>
     `;
