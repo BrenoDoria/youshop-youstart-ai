@@ -25,40 +25,25 @@ REGRAS OBRIGATÓRIAS:
 
 1. O produto recomendado deve estar diretamente relacionado ao nicho informado.
 
-2. O plano de Mínimo: 0 dias
-Máximo: 30 dias deve ser diferente para cada canal:
-- Instagram = reels, stories, carrosséis
-- YouTube = vídeos, shorts e lives
-- WhatsApp = listas, grupos e mensagens
-- Blog = artigos e SEO
+2. Gere entre 5 e 10 ações.
 
-3. O obstáculo deve influenciar toda a estratégia.
+3. Escolha um prazo realista entre 0 e 30 dias.
 
-Exemplos:
+4. Retorne o prazo em:
 
-Se obstáculo = nao_saber_criar
-→ sugerir Canva, ChatGPT e conteúdo simples.
+"tempo_estimado":"15 dias"
 
-Se obstáculo = nao_vender
-→ foco em copy e fechamento.
+5. Cada ação deve ter no máximo 1 frase.
 
-Se obstáculo = produto_errado
-→ foco em validação de produto.
+6. O plano deve ser objetivo e fácil de executar.
 
-Se obstáculo = tempo
-→ foco em automação e produtividade.
+7. A copy deve ser totalmente diferente para cada nicho.
 
-4. A comissão deve ser realista.
+8. Não use markdown (**).
 
-5. A conversão deve ser um percentual curto:
-Exemplo:
-"2.5%"
-"4.1%"
-"3.8%"
+9. Não use listas dentro das ações.
 
-6. A copy deve ser totalmente diferente para cada nicho.
-
-7. Em "ia_ajuda" gere exatamente 5 itens.
+10. Em "ia_ajuda" gere exatamente 5 itens.
 
 RESPONDA SOMENTE COM JSON VÁLIDO.
 
