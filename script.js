@@ -61,8 +61,8 @@ async function gerarPlano() {
         const data = await response.json();
         const texto = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
-        console.log("TEXTO RECEBIDO:");
-        console.log(texto);
+        /*console.log("TEXTO RECEBIDO:");
+        console.log(texto);*/
 
         if (!texto) throw new Error("Resposta vazia");
 
