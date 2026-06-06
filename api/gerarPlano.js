@@ -31,7 +31,7 @@ REGRAS OBRIGATÓRIAS:
 
 4. Retorne o prazo em:
 
-"tempo_estimado":"15 dias"
+"tempo_estimado"
 
 5. Cada ação deve ter no máximo 1 frase.
 
